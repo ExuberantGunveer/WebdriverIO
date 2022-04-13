@@ -33,7 +33,7 @@ describe('login test',()=>{
         console.log('Doesnt Match');
     }
 
-
+   //Click on First Product 
     const productOne = await $("//a[contains(text(),'Thomas Street Lime and Basil Leaf Soy Wax Scented Candle')]");
     await productOne.scrollIntoView();
     const productOneName = await productOne.getText;
@@ -41,9 +41,11 @@ describe('login test',()=>{
     await productOne.waitForClickable();
     await productOne.click();
 
+    // Added First Product to Cart
     const addtocartbtn = await $("(//button[contains(text(),'Add to cart')])[1]");
     await addtocartbtn.waitForClickable();
     await addtocartbtn.click();
+    
     
     const newinLink = $("(//a[contains(text(),'New In')])[2]");
     await newinLink.waitForClickable();
@@ -51,23 +53,25 @@ describe('login test',()=>{
 
     await  browser.pause(2000);
 
-
+   // Click on Second Product : 
     const productTwo = await $("//a[contains(text(),'Thomas Street Pomegranate Soy Wax Scented Candle')]");
     await productTwo.scrollIntoView();
     await productTwo.waitForClickable();
     await productTwo.click();
 
+   // Added Second Product to Cart : 
     await addtocartbtn.waitForClickable();
     await addtocartbtn.click();
 
-
+   // Click on Cart : 
     const cart = await $("//span[contains(text(),'Cart')]");
     await cart.waitForClickable();
     await cart.click();
     await browser.pause(3000);
 
     // async finalvalue => {
-
+ 
+// Validating the Text of Final Value added to Cart :  
     const finalAddToCartPrice = await $("//span[@class='cart-recap__price-line-price']");
     const kk = await finalAddToCartPrice.getText();
     console.log("String Total Product Price is : - "+ kk);
@@ -83,7 +87,7 @@ describe('login test',()=>{
     const productOnePrice = await $("(//span[@class='line-item__price'])[1]");
     const productTwoPrice = await $("(//span[@class='line-item__price'])[2]");
 
-    // Get text of 1st Product Value & Converting String to Integer :-
+// Get text of 1st Product Value & Converting String to Integer :-
     const po = await productOnePrice.getText();
     console.log("String Product Price is : - "+ po);
     const productOneIntPrice =  po.replace('£', '');
