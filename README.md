@@ -8,3 +8,4 @@ Learned how to create Xpath ,
 Learned about allure report ,
 Learned & implemented about how to take screenshot on failure ,
 Learned about how to handle alerts & working on that
+
