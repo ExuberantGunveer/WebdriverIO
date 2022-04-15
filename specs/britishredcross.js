@@ -1,4 +1,4 @@
-describe('login test',()=>{
+describe('british login test',()=>{
     it('launch the browser', async ()=>{
     await browser.url('https://giftshop.redcross.org.uk/collections/new-in');
     browser.maximizeWindow();
@@ -9,12 +9,12 @@ describe('login test',()=>{
     // //Get the URL 
     // console.log(await browser.getUrl()); 
     
-    // Verify the Login Page
+    // Verify the Homepage Page
     await expect(browser).toHaveTitle("New in");
-    console.log(' The Title of the Opencart Website is : ' +  await browser.getTitle);
+    console.log(' The Title of the Website is : ' +  await browser.getTitle);
 
-    const verifyNewItem = await $("//div[class='card']//div//ul//li//following-sibling::li//a[contains(text(),'79')]");
-    const verifyListItem = await $("//span[contains(text(),'79')]");
+    const verifyNewItem = await $("//div[class='card']//div//ul//li//following-sibling::li//a[contains(text(),'83')]");
+    const verifyListItem = await $("//span[contains(text(),'83')]");
     // await expect(verifyListItem).toBePresent();
 
     
@@ -26,8 +26,8 @@ describe('login test',()=>{
     if(newItemlistbtn === true){
         console.log("Item Value is Displayed");
 }
-    // const listItembtn= await verifyNewItem.isDisplayed ;
-    if(newItembtn && newItemlistbtn){
+  
+    if(newItembtn && newItemlistbtn ){
         console.log('List Item details are Match with New Item')
     }else {
         console.log('Doesnt Match');
@@ -94,14 +94,14 @@ describe('login test',()=>{
     let two = await Math.floor(productOneIntPrice);
     console.log("First Product Int Value : " + two)
 
-    // Get text of 2nd Product Value & Converting String to Integer :-
+ // Get text of 2nd Product Value & Converting String to Integer :-
     const pt = await productTwoPrice.getText();
     console.log("String Product Price is : - "+ pt);
     const productTwoIntPrice =  pt.replace('£', '');
     let three = await Math.floor(productTwoIntPrice);
     console.log("Second Product Int Value : " +three);
 
-    // Verifying Total Value of Product with the Value of Products Added to Cart
+ // Verifying Total Value of Product with the Value of Products Added to Cart
     let sum = two + three ;
     console.log("Total Sum of Product is : " + sum);
 
